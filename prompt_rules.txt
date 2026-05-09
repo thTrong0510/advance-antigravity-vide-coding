@@ -1,0 +1,31 @@
+Prompt mẫu để tạo Rules từ đầu:
+
+Tôi đang làm dự án [mô tả dự án ngắn gọn].
+Stack: [ngôn ngữ/framework đang dùng].
+Tiêu chuẩn team: [các quy ước code team đang theo] dự án mở rộng, dễ bảo trì ....
+
+Hãy viết một bộ Rules cho Antigravity Agent với các yêu cầu:
+- Mỗi rule ngắn gọn, dưới 15 từ
+- Dùng cấu trúc "Always/Never/When [điều kiện]: [hành động]"
+- Tổng không quá 3.000 ký tự
+- Ưu tiên các quy tắc quan trọng nhất, không liệt kê hết mọi thứ
+
+Prompt mẫu để cải thiện Rules đang có:
+Đây là file Rules hiện tại của tôi:
+[dán nội dung file Rules vào]
+Hãy giúp tôi:
+1. Rút gọn các rule nào đang quá dài
+2. Xóa các rule bị trùng lặp hoặc mâu thuẫn nhau
+3. Sắp xếp lại theo nhóm ngữ cảnh rõ ràng hơn
+4. Đề xuất thêm rules nào tôi có thể đang thiếu
+Giữ tổng dưới 5.000 ký tự.
+
+
+Prompt mẫu để tách file routing:
+File Rules của tôi đang quá dài:
+[dán nội dung file Rules vào]
+
+Hãy giúp tôi tách thành cấu trúc file routing:
+- 1 file router chính (GEMINI.md) — chỉ chứa hướng dẫn gọi file con
+- Các file con theo nhóm ngữ cảnh hợp lý
+Trình bày rõ nội dung từng file.

@@ -73,5 +73,45 @@ khi làm 1 project bạn đầu: xuất phát từ mode plan -> để nó tạo 
 trong file code có thể: chọn điểm bắt đầu + giữ Shift + chọn điểm kết thúc để bôi đen + bấm chat comment vào đó -> AI sẽ tự động xác định phạm vi và thực hiện theo yêu cầu trong comment 
 
 
+khi tạo 1 project mới nằm chung cấp với project cũ tức là đều nằm trong folder root -> khi gửi yc thì bth nó sẽ đọc và quét hết all folder + file -> nên chỉ định trong rq nó ko cần đọc project nào 
+
+undo changes: back lại code 
+	có thể bấm vào undo tại bất kì rq nào -> nó sẽ back lại code trước cái rq đó đồng thời cũng xóa luôn lịch sử chat tính từ lịch sử chat đó trở về sau -> đối với những task đơn giản thì ổn chứ nếu task phức tạp mình nên giữ lại lịch sử chat để xem mình đã sai chỗ nào blabal 
+
+
+chapter 4
+AI ko biết mà chỉ đoán cái gì sẽ xuất hiện tiếp theo dựa trên data đã training -> đoán thì dựa trên xác suất
+
+chapter 5
+mỗi cuộc hội thoại nó đều có giới hạn context window (input + output) -> sẽ đến lúc nó đầy -> mở 1 cuộc hội thoại mới (có thể nó sẽ nhớ 1 vài thông tin quan trọng của cuộc hội thoại khác "tự lưu vào knowledge của nó") nhưng nó sẽ ko lưu hết và đúng chắc chắn được
+
+-> mỗi tính năng nên mở 1 cuộc hội thoại khác 
+-> nên lưu những thông tin chung của dự án vào 1 file để nó đọc rules
+
+đối với antigravity có 1 khái niệm là rules bộ nhớ vĩnh viễn của Agent 
+-> mình sẽ tạo rules đây sẽ chứa những thông tin chung mà all task đều cần -> mỗi rq mình sẽ đính kèm theo rules là 1 file .md
+
+Tạo rule trong antigravity:
+	editor -> customizations -> rules có 2 phạm vi
+		+workspace: có hiệu lực bên trong dự án đang làm
+		+global: có hiệu lực cho tất cả dự án (thường viết những cái không được làm trong dự án)
+		-> ở đây nếu rule ở workplace sẽ có độ ưu tiên cao hơn nếu bị conflict
+
+ở đây cần tối ưu hóa phần rules vì mỗi rq đều kèm theo nó -> nên viết tối ưu nhất có thể tránh quá nhiều 
+
+nên tạo nhiều file rule và set cho nó cái mode cụ thể: rules nào luôn luôn kèm theo, rule nào, để AI quyết, ...
+
+Quy tắc:
+.agents/rules
+	GEMINI.md: file router chính (kiểu khi nào viết file python thì đọc file python.md ...)
+	python.md: rules riêng cho python 
+	database.md: ... db
+	testing.md: ... test
+
+
+
+
+
+
 
 

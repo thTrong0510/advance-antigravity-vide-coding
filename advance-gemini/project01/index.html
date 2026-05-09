@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast | Premium Weather Insights</title>
+    <meta name="description" content="A modern, high-performance weather dashboard featuring real-time data and 7-day forecasts.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <span class="logo-icon">☁️</span>
+                <h1>SkyCast</h1>
+            </div>
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <input type="text" id="city-input" placeholder="Search for a city..." autocomplete="off">
+                    <div id="suggestions" class="suggestions-list"></div>
+                </div>
+                <button id="search-btn">Search</button>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <span id="theme-icon">🌙</span>
+            </button>
+        </header>
+
+        <main id="weather-display" class="hidden">
+            <section class="current-weather">
+                <div class="glass-card main-card">
+                    <div class="weather-info">
+                        <div class="location-date">
+                            <h2 id="location-name">London, UK</h2>
+                            <p id="current-date">Friday, 8 May 2026</p>
+                        </div>
+                        <div class="temp-container">
+                            <span id="current-temp" class="temp">24°</span>
+                            <div class="condition-box">
+                                <div id="weather-icon" class="main-weather-icon"></div>
+                                <span id="weather-desc">Cloudy</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weather-stats">
+                        <div class="stat-item">
+                            <span class="label">Feels Like</span>
+                            <span id="feels-like" class="value">26°</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="label">Humidity</span>
+                            <span id="humidity" class="value">45%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="label">Wind Speed</span>
+                            <span id="wind-speed" class="value">12 km/h</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="label">UV Index</span>
+                            <span id="uv-index" class="value">Low</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="forecast-section">
+                <h3>7-Day Forecast</h3>
+                <div id="forecast-grid" class="forecast-grid">
+                    <!-- Forecast items will be injected here -->
+                </div>
+            </section>
+        </main>
+
+        <div id="loader" class="loader-container hidden">
+            <div class="spinner"></div>
+            <p>Fetching weather data...</p>
+        </div>
+
+        <div id="welcome-screen" class="welcome-screen">
+            <h2>Welcome to SkyCast</h2>
+            <p>Search for a city to get started</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

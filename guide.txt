@@ -1,0 +1,77 @@
+Chapter 1:
+
+- token: la đơn vị xử lý ngôn ngữ của AI, đơn vị tính tiền khi sử dụng AI
+	AI ko đọc text theo từng chữ hay từng từ - nó đọc theo token 
+	vd: 
+		"hello" -> 1 token
+		"!" -> 1 token
+		"hello world" -> 2-3 token 
+
+	ở đây đối với tiếng anh sẽ ít tốn token nhất - vì những chữ khác nó kèm theo những kí tự khác 
+
+	Quy ước nhanh: 100 token ~ 75 từ tiếng anh (tiếng khác có thể x1.5, 2.0 lần lên)
+
+	việc gọi API -> nó cũng sẽ tính tiền theo token dựa trêm input + output -> lượng text nhập càng nhiều càng tốn token (output nó sẽ tốn nhiều token hơn input thường gấp 5-8 lần)
+
+	những task đơn giản thì nên dùng các version: mini/flash/haiku thì nó sẽ rẻ hơn nhiều 
+
+
+- Context window + khả năng ghi nhớ của AI
+	là bộ nhớ tạm của AI trong 1 cuộc hội thoại (gần giống RAM của máy tính)
+	-> khi gửi 1 request thì AI nó sẽ đọc hết all lịch sử trò chuyện 
+
+	context window là giới hạn tổng số token AI có thể nhìn thấy trong 1 lần xử lý -> nếu vượt quá nó sẽ quên phần đầu cuộc trò chuyện (hiện tại thì gemini nó có context window tương đối lớn nhất)
+
+	all chat từ đầu + all phản hồi + tài liệu, file, ... + system prompt nếu dùng API = tổng token tiêu thụ trên 1 lần gửi
+
+	đóng tab/trình duyệt/xóa đoạn chat/tạo đoạn chat mới -> AI sẽ ko biết bạn là ai nữa
+
+	1 số nền tảng có tính năng memory riêng giúp nhớ nhiều đoạn chat dù tạo mới nó vẫn nhận dạng được -> thì đây là 1 tính năng khác ko phải context window
+
+	đối với developer dùng API: mình phải tự handle lịch sử nếu ko nó sẽ ko tự nhớ được 
+
+**đối với nodejs -> cài thêm mvn để có thể quản lý và sử dụng nhiều version của nodejs**
+
+
+Chapter 2
+- mode: của antigravity mặc định là fast mode -> có thể chuyển qua plan mode = nhấn vào dấu + 
+- Agent: là kiểu nó sẽ can thiệp nhiều hơn làm nhiều hơn (assistant) - chứ ko chỉ đơn giản là chatbot 
+	antigravity -> dùng để tối ưu các AI của gg nhứ gemini hơn là những cái khác 
+
+để xem limit đối với tài khoản của mình: mình có thể vào antigravity setting + advance setting - models: quota hiển thị những cái thanh chứ nó ko hiển thị số request đã gửi -> nếu nó hết thanh đó thì sẽ đợi nó reset lại thì mới dùng tiếp được 
+
+- Cấu hình quyền cho nó: đa số thì nên để mặc định vì nó đã đáp ứng được nhu cầu cơ bản (antigravity setting + advance setting)
+	artifact: là sp mà AI tạo ra khi mình trao đổi hoặc yc nó ví dụ tạo ra 1 file code, ... 
+		mặc định sẽ là ask for review cứ để mặc định -> review kiểm soát nó (ko được để chế đó always proceeds: nó sẽ ko hỏi mà tự động thực hiện)
+	terminal: tượng tự mặc định request review (để mặc định)
+	automation: agent Auto-fix lints: khi code nếu có lỗi nó sẽ tự fix 
+
+	File Access: 
+		Agent Non-Workspace File Access: cho phép đọc file ngoài dự án hay không -> nên để off chỉ cho nó đọc file trong dự án 
+
+	-> tất cả nên để mặc định và khi chỉnh sửa nên biết mình đang làm cái gì 
+
+	phần nâng cao là permission: cho chạy những code gì, cấm những gì ...
+		docs: https://antigravity.google/docs/agent-permissions
+
+**ngoại ra thì cũng có thể cấu hình nâng cao qua viết code -> file json chứ ko cần vào đây
+
+
+	Plan mode: lên kế hoạch - cao về chất lượng, làm - nên làm với claude vì nó mạnh (tốn token hơn) trong việc này
+
+	Fast mode: nhanh chóng - tối ưu dung lượng, phần quota - dùng khi đã lên được kế hoạch rồi và nên dùng với gemini 
+
+
+	Hello world - với vibe coding
+	khi gõ prompt thì nên dùng tiếng anh 
+
+
+chapter 3
+
+khi làm 1 project bạn đầu: xuất phát từ mode plan -> để nó tạo plan cho mình + chỉnh sửa/review lại plan -> done rồi hãy chuyển qua fast để nó thực thi
+
+trong file code có thể: chọn điểm bắt đầu + giữ Shift + chọn điểm kết thúc để bôi đen + bấm chat comment vào đó -> AI sẽ tự động xác định phạm vi và thực hiện theo yêu cầu trong comment 
+
+
+
+

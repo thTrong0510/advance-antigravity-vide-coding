@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast | Premium Weather Experience</title>
+    <meta name="description" content="A beautiful, premium weather application featuring glassmorphism design and dark mode support.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header & Search Section -->
+        <header class="glass-card header">
+            <div class="search-box">
+                <input type="text" id="cityInput" placeholder="Search city (e.g. London, Paris, Tokyo)..." aria-label="Search city">
+                <button id="searchBtn">Search</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+                <span id="themeIcon">🌙</span>
+            </button>
+        </header>
+
+        <!-- Main Weather Display -->
+        <main class="glass-card main-weather" id="weatherDisplay">
+            <h1 class="city-name" id="cityName">Loading...</h1>
+            <p class="date" id="currentDate">Saturday, May 9, 2026</p>
+            
+            <div class="weather-info">
+                <div class="temp" id="currentTemp">--°</div>
+                <div class="condition" id="conditionText">Clear Sky</div>
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-item">
+                    <span class="detail-label">Humidity</span>
+                    <span class="detail-value" id="humidity">--%</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Wind</span>
+                    <span class="detail-value" id="wind">-- km/h</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">UV Index</span>
+                    <span class="detail-value" id="uvIndex">--</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Visibility</span>
+                    <span class="detail-value" id="visibility">-- km</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Forecast Section -->
+        <section class="glass-card">
+            <h2 style="font-size: 1.2rem; margin-bottom: 20px;">5-Day Forecast</h2>
+            <div class="forecast-container" id="forecastContainer">
+                <!-- Forecast cards will be injected here -->
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
